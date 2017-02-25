@@ -8,56 +8,56 @@ import 'angular-ui-router';
 import 'ionic-scripts';
 import Angular from 'angular';
 import Loader from 'angular-ecmascript/module-loader';
-import { Meteor } from 'meteor/meteor';
+import {Meteor} from 'meteor/meteor';
 
 // Modules
-import ChatsCtrl from '../controllers/posts.controller';
-import ChatCtrl from '../controllers/post.controller';
+import PostsCtrl from '../controllers/posts.controller';
+import PostCtrl from '../controllers/post.controller';
 import ConfirmationCtrl from '../controllers/confirmation.controller';
 import LoginCtrl from '../controllers/login.controller';
-import NewChatCtrl from '../controllers/newPost.controller';
+import NewPostCtrl from '../controllers/newPost.controller';
 import ProfileCtrl from '../controllers/profile.controller';
 import SettingsCtrl from '../controllers/settings.controller';
 import InputDirective from '../directives/input.directive';
 import CalendarFilter from '../filters/calendar.filter';
-import ChatNameFilter from '../filters/post-name.filter';
-import ChatPictureFilter from '../filters/post-picture.filter';
-import NewChatService from '../services/new-post.service';
+import PostNameFilter from '../filters/post-name.filter';
+import PostPictureFilter from '../filters/post-picture.filter';
+import NewPostService from '../services/new-post.service';
 import Routes from '../routes';
 
 const App = 'Whatsapp';
 
 // App
 Angular.module(App, [
-  'angular-meteor',
-  'angular-meteor.auth',
-  'angularMoment',
-  'ionic'
+    'angular-meteor',
+    'angular-meteor.auth',
+    'angularMoment',
+    'ionic'
 ]);
 
 new Loader(App)
-  .load(ChatsCtrl)
-  .load(ChatCtrl)
-  .load(ConfirmationCtrl)
-  .load(LoginCtrl)
-  .load(NewChatCtrl)
-  .load(ProfileCtrl)
-  .load(SettingsCtrl)
-  .load(InputDirective)
-  .load(CalendarFilter)
-  .load(ChatNameFilter)
-  .load(ChatPictureFilter)
-  .load(NewChatService)
-  .load(Routes);
+    .load(PostsCtrl)
+    .load(PostCtrl)
+    .load(ConfirmationCtrl)
+    .load(LoginCtrl)
+    .load(NewPostCtrl)
+    .load(ProfileCtrl)
+    .load(SettingsCtrl)
+    .load(InputDirective)
+    .load(CalendarFilter)
+    .load(PostNameFilter)
+    .load(PostPictureFilter)
+    .load(NewPostService)
+    .load(Routes);
 
 // Startup
 if (Meteor.isCordova) {
-  Angular.element(document).on('deviceready', onReady);
+    Angular.element(document).on('deviceready', onReady);
 }
 else {
-  Angular.element(document).ready(onReady);
+    Angular.element(document).ready(onReady);
 }
 
 function onReady() {
-  Angular.bootstrap(document, [App]);
+    Angular.bootstrap(document, [App]);
 }
