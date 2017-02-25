@@ -9,7 +9,6 @@ export default class PostNameFilter extends Filter {
     let otherId = _.without(post.userIds, Meteor.userId())[0];
     let otherUser = Meteor.users.findOne(otherId);
     let hasName = otherUser && otherUser.profile && otherUser.profile.name;
-
     return hasName ? otherUser.profile.name : post.name || 'NO NAME';
   }
 }
