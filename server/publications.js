@@ -20,7 +20,7 @@ Meteor.publishComposite('posts', function(){
       },
       {
         find(post){
-          const query = { _id: { $in: post.userId }};
+          const query = { _id: { $eq: post.userId }};
           const options = { fields: { profile: 1 }};
 
           return Meteor.users.find(query, options);
