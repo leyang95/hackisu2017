@@ -1,7 +1,7 @@
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { Posts } from '../../../lib/collections';
 
-export default class PostCtrl extends Controller {
+export default class PostsCtrl extends Controller {
   constructor() {
     super(...arguments);
 
@@ -12,14 +12,14 @@ export default class PostCtrl extends Controller {
     });
   }
 
-  showNewChatModal() {
-    this.NewPost.showModal();
+  showNewPostsModal() {
+    this.NewPosts.showModal();
   }
 
   remove(post) {
-    this.callMethod('removeChat', post._id);
+    this.callMethod('removePost', post._id);
   }
 }
 
-PostCtrl.$name = 'PostCtrl';
-PostCtrl.$inject = ['NewPost'];
+PostsCtrl.$name = 'PostsCtrl';
+PostsCtrl.$inject = ['NewPost'];

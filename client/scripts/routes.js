@@ -1,7 +1,7 @@
 import { _ } from 'meteor/underscore';
 import { Config, Runner } from 'angular-ecmascript/module-helpers';
 
-import chatsTemplateUrl from '../templates/post.html';
+import postTemplateUrl from '../templates/post.html';
 import chatTemplateUrl from '../templates/chat.html';
 import confirmationTemplateUrl from '../templates/confirmation.html';
 import loginTemplateUrl from '../templates/login.html';
@@ -29,12 +29,12 @@ class RoutesConfig extends Config {
           }
         }
       })
-      .state('tab.post', {
-        url: '/post',
+      .state('tab.posts', {
+        url: '/posts',
         views: {
-          'tab-post': {
-            templateUrl: postTemplateUrl,
-            controller: 'PostCtrl as post'
+          'tab-posts': {
+            templateUrl: postsTemplateUrl,
+            controller: 'PostsCtrl as posts'
           }
         }
       })
