@@ -72,6 +72,23 @@ export default class PostCtrl extends Controller {
         }
     }
 
+    autoScroll() {
+        let recentMessagesNum = this.messages.length;
+
+        this.autorun(() => {
+            const currMessagesNum = this.getCollectionReactively('messages').length;
+            const animate = recentMessagesNum != currMessagesNum;
+            recentMessagesNum = currMessagesNum;
+            this.scrollBottom(animate);
+        });
+    }
+
+    scrollBottom(animate) {
+        this.$timeout(() => {
+            this.$ionicScrollDelegate.$getByHandle('postScroll').scrollBottom(animate);
+        }, 300);
+    }
+
     handleError(err) {
         if (err.error == 'cancel') return;
         this.$log.error('Profile save error ', err);

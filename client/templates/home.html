@@ -7,7 +7,7 @@
           <div class="card-user-layer">
             <h4 class="card-title">{{ post | postName}}</h4>
           </div>
-          <a> <img ng-src="{{ post.picture}}" class="card-img-top img-responsive"></a>
+          <a href="#!/tab/posts/{{ post._id }}"> <img ng-src="{{ post.picture}}" class="card-img-top img-responsive"></a>
           <div class="card-block">
             <p class="card-text">{{ post.caption }}</p>
             <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
