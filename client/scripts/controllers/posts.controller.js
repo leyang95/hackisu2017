@@ -13,7 +13,7 @@ export default class PostsCtrl extends Controller {
   }
 
   showNewPostsModal() {
-    this.NewPosts.showModal();
+    this.NewPost.showModal();
   }
 
   remove(post) {

@@ -1,14 +1,14 @@
-<ion-modal-view ng-controller="NewChatCtrl as post">
+<ion-modal-view ng-controller="NewPostCtrl as post">
   <ion-header-bar>
-    <h1 class="title">New Chat</h1>
+    <h1 class="title">New Post</h1>
     <div class="buttons">
-      <button class="button button-clear button-positive" ng-click="post.hideNewChatModal()">Cancel</button>
+      <button class="button button-clear button-positive" ng-click="post.hideNewPostModal()">Cancel</button>
     </div>
   </ion-header-bar>
 
   <ion-content>
     <div class="list">
-      <a ng-repeat="user in post.users" ng-click="post.newChat(user._id)" class="item">
+      <a ng-repeat="user in post.users" ng-click="post.newPost(user._id)" class="item">
         <h2>{{ user.profile.name }}</h2>
         <p>
           Hey there! I am using meteor-Whatsapp with meteor.
