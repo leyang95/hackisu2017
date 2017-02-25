@@ -1,12 +1,12 @@
 import { Service } from 'angular-ecmascript/module-helpers';
 
-import newChatTemplateUrl from '../../templates/new-chat.html';
+import newPostTemplateUrl from '../../templates/new-post.html';
 
-export default class NewChatService extends Service {
+export default class NewPostService extends Service {
   constructor() {
     super(...arguments);
 
-    this.templateUrl = newChatTemplateUrl;
+    this.templateUrl = newPostTemplateUrl;
   }
 
   showModal() {
@@ -27,5 +27,5 @@ export default class NewChatService extends Service {
   }
 }
 
-NewChatService.$name = 'NewChat';
-NewChatService.$inject = ['$rootScope', '$ionicModal'];
+NewPostService.$name = 'NewPost';
+NewPostService.$inject = ['$rootScope', '$ionicModal'];

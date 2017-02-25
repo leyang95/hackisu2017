@@ -30,7 +30,7 @@ export default class ProfileCtrl extends Controller {
 
     this.callMethod('updateName', this.name, (err) => {
       if (err) return this.handleError(err);
-      this.$state.go('tab.chats');
+      this.$state.go('tab.post');
     });
   }
 

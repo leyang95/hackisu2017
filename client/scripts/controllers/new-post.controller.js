@@ -15,39 +15,39 @@ export default class Posts extends Controller {
     });
   }
 
-  newChat(userId) {
+  newPost(userId) {
     let post = Posts.findOne({ userIds: { $all: [this.currentUserId, userId] } });
 
     if (post) {
-      this.hideNewChatModal();
-      return this.goToChat(post._id);
+      this.hideNewPostModal();
+      return this.goToPost(post._id);
     }
 
-    this.callMethod('newChat', userId, (err, chatId) => {
-      this.hideNewChatModal();
+    this.callMethod('newPost', userId, (err, postId) => {
+      this.hideNewPostModal();
       if (err) return this.handleError(err);
-      this.goToChat(chatId);
+      this.goToPost(postId);
     });
   }
 
-  hideNewChatModal() {
-    this.NewChat.hideModal();
+  hideNewPostModal() {
+    this.NewPost.hideModal();
   }
 
-  goToChat(chatId) {
-    this.$state.go('tab.chat', { chatId });
+  goToPost(postId) {
+    this.$state.go('tab.post', { postId });
   }
 
   handleError(err) {
-    this.$log.error('New chat creation error ', err);
+    this.$log.error('New post creation error ', err);
 
     this.$ionicPopup.alert({
-      title: err.reason || 'New chat creation failed',
+      title: err.reason || 'New post creation failed',
       template: 'Please try again',
       okType: 'button-positive button-clear'
     });
   }
 }
 
-NewChatCtrl.$name = 'NewChatCtrl';
-NewChatCtrl.$inject = ['$state', 'NewChat', '$ionicPopup', '$log'];
+NewPostCtrl.$name = 'NewPostCtrl';
+NewPostCtrl.$inject = ['$state', 'NewPost', '$ionicPopup', '$log'];

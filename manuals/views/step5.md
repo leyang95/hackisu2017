@@ -28,7 +28,7 @@ This button calls a controller method, which we will implement now in the contro
 [{]: <helper> (diff_step 5.2)
 #### Step 5.2: Add new chat button logic
 
-##### Changed client/scripts/controllers/post.controller.js
+##### Changed client/scripts/controllers/posts.controller.js
 ```diff
 @@ -12,9 +12,14 @@
  ┊12┊12┊    });
@@ -86,7 +86,7 @@ And in order to open this modal, we will create a service that takes care of it:
 [{]: <helper> (diff_step 5.4)
 #### Step 5.4: Create new chat service
 
-##### Added client/scripts/services/new-chat.service.js
+##### Added client/scripts/services/new-post.service.js
 ```diff
 @@ -0,0 +1,31 @@
 +┊  ┊ 1┊import { Service } from 'angular-ecmascript/module-helpers';
@@ -154,7 +154,7 @@ And now we will add the controller of this view, and use the `NewChat` service:
 [{]: <helper> (diff_step 5.6)
 #### Step 5.6: Add new chat controller
 
-##### Added client/scripts/controllers/new-chat.controller.js
+##### Added client/scripts/controllers/new-post.controller.js
 ```diff
 @@ -0,0 +1,51 @@
 +┊  ┊ 1┊import { Meteor } from 'meteor/meteor';
@@ -281,7 +281,7 @@ We will also rewrite the logic of `removeChat()` function in the `ChatsCtrl` and
 [{]: <helper> (diff_step 5.9)
 #### Step 5.9: Call remove chat method
 
-##### Changed client/scripts/controllers/post.controller.js
+##### Changed client/scripts/controllers/posts.controller.js
 ```diff
 @@ -17,7 +17,7 @@
  ┊17┊17┊  }
@@ -334,7 +334,7 @@ The next messages won't include the username, only the user id, so we need to ch
 [{]: <helper> (diff_step 5.11)
 #### Step 5.11: Create chat name filter
 
-##### Added client/scripts/filters/chat-name.filter.js
+##### Added client/scripts/filters/post-name.filter.js
 ```diff
 @@ -0,0 +1,17 @@
 +┊  ┊ 1┊import { _ } from 'meteor/underscore';
@@ -387,7 +387,7 @@ And we will also create the same logic for fetching the user's image:
 [{]: <helper> (diff_step 5.13)
 #### Step 5.13: Create chat picture filter
 
-##### Added client/scripts/filters/chat-picture.filter.js
+##### Added client/scripts/filters/post-picture.filter.js
 ```diff
 @@ -0,0 +1,17 @@
 +┊  ┊ 1┊import { _ } from 'meteor/underscore';
