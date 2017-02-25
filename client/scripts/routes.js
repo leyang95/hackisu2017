@@ -1,9 +1,9 @@
 import { _ } from 'meteor/underscore';
 import { Config, Runner } from 'angular-ecmascript/module-helpers';
 
+import newPostTemplateUrl from '../templates/newPost.html';
 import postTemplateUrl from '../templates/post.html';
 import postsTemplateUrl from '../templates/posts.html';
-import newPostTemplateUrl from '../templates/newPost.html';
 import confirmationTemplateUrl from '../templates/confirmation.html';
 import loginTemplateUrl from '../templates/login.html';
 import profileTemplateUrl from '../templates/profile.html';
@@ -75,14 +75,12 @@ class RoutesConfig extends Config {
           }
         }
       })
-      .state('tab.newPost', {
+      .state('newPost', {
         url: '/newPost',
-        views: {
-          'tab-newPost': {
-            templateUrl: newPostTemplateUrl,
-            controller: 'NewPostCtrl as newPost',
-          }
-        }
+        templateUrl: newPostTemplateUrl,
+        controller: 'NewPostCtrl as newPost',
+        params: {picture: null}
+
       });
 
     this.$urlRouterProvider.otherwise('tab/posts');

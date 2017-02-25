@@ -1,18 +1,22 @@
+import { _ } from 'meteor/underscore';
 import { Meteor } from 'meteor/meteor';
 import { Controller } from 'angular-ecmascript/module-helpers';
-import { Posts } from '../../../lib/collections';
+import { Posts, Messages } from '../../../lib/collections';
 
 export default class NewPostCtrl extends Controller {
   constructor() {
     super(...arguments);
 
+    this.picture = this.$state.params.picture;
+    if(_.isEmpty(this.picture)){
+      this.picture = "http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg";
+    }
     this.subscribe('users');
-    this.image = this.$state.params.image;
   }
 
   confirm() {
-    if (_.isEmpty(this.caption)) return;
-    newPost(this.currentUserId);
+    if (_.isEmpty(this.picture)) return;
+    this.newPost(this.currentUserId);
   }
 
   newPost(userId) {
@@ -20,7 +24,7 @@ export default class NewPostCtrl extends Controller {
       // this.hideNewPostModal();
       if (err) return this.handleError(err);
       this.callMethod('newMessage', {
-        picture: data,
+        picture: this.picture,
         type: 'picture',
         postId: this.postId
       });
@@ -31,6 +35,7 @@ export default class NewPostCtrl extends Controller {
   goToPost(postId) {
     this.$state.go('tab.post', { postId });
   }
+
 
   handleError(err) {
     this.$log.error('New post creation error ', err);

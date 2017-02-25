@@ -1,6 +1,7 @@
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { MeteorCameraUI } from 'meteor/supaseca:camera-ui';
 import { Posts } from '../../../lib/collections';
+import { Session } from 'meteor/session'
 
 export default class PostsCtrl extends Controller {
   constructor() {
@@ -20,8 +21,7 @@ export default class PostsCtrl extends Controller {
   takePicture(){
     MeteorCameraUI.getPicture({}, (err, data) => {
       if(err) return this.handleError(err);
-
-      this.$state.go('tab.newPost', { image: data });
+      this.$state.go('newPost', {picture: data});
     });
   }
 

@@ -1,4 +1,4 @@
-<ion-view title="New Post">
+<ion-view view-title="New Post">
   <ion-nav-buttons side="right">
     <button ng-click="newPost.confirm()" class="button button-clear button-positive">Done</button>
   </ion-nav-buttons>
@@ -6,8 +6,17 @@
   <ion-content>
     <div class="list padding-top">
       <label class="item item-input">
-        <input ng-model="newPost.caption" on-return="newPost.confirm()" type="text" placeholder="Write a caption...">
+        <img class="user-picture" ng-src="{{ newPost.picture }}">
       </label>
     </div>
   </ion-content>
+  <ion-footer-bar keyboard-attach class="bar-stable footer-post item-input-inset">
+
+    <label class="item-input-wrapper">
+      <input ng-model="newPost.caption"
+             dir="auto"
+             type="text"
+             on-return="newPost.confirm();"/>
+    </label>
+  </ion-footer-bar>
 </ion-view>
