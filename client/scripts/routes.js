@@ -3,6 +3,7 @@ import { Config, Runner } from 'angular-ecmascript/module-helpers';
 
 import postTemplateUrl from '../templates/post.html';
 import postsTemplateUrl from '../templates/posts.html';
+import newPostTemplateUrl from '../templates/newPost.html';
 import confirmationTemplateUrl from '../templates/confirmation.html';
 import loginTemplateUrl from '../templates/login.html';
 import profileTemplateUrl from '../templates/profile.html';
@@ -71,6 +72,15 @@ class RoutesConfig extends Config {
           'tab-settings': {
             templateUrl: settingsTemplateUrl,
             controller: 'SettingsCtrl as settings',
+          }
+        }
+      })
+      .state('tab.newPost', {
+        url: '/newPost',
+        views: {
+          'tab-newPost': {
+            templateUrl: newPostTemplateUrl,
+            controller: 'NewPostCtrl as newPost',
           }
         }
       });

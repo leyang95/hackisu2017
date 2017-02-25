@@ -1,0 +1,13 @@
+<ion-view title="New Post">
+  <ion-nav-buttons side="right">
+    <button ng-click="newPost.confirm()" class="button button-clear button-positive">Done</button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="list padding-top">
+      <label class="item item-input">
+        <input ng-model="newPost.caption" on-return="newPost.confirm()" type="text" placeholder="Write a caption...">
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

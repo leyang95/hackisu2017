@@ -15,7 +15,7 @@ import ChatsCtrl from '../controllers/posts.controller';
 import ChatCtrl from '../controllers/post.controller';
 import ConfirmationCtrl from '../controllers/confirmation.controller';
 import LoginCtrl from '../controllers/login.controller';
-import NewChatCtrl from '../controllers/new-post.controller';
+import NewChatCtrl from '../controllers/newPost.controller';
 import ProfileCtrl from '../controllers/profile.controller';
 import SettingsCtrl from '../controllers/settings.controller';
 import InputDirective from '../directives/input.directive';

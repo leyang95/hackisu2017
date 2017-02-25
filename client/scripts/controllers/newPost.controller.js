@@ -7,31 +7,25 @@ export default class NewPostCtrl extends Controller {
     super(...arguments);
 
     this.subscribe('users');
+    this.image = this.$state.params.image;
+  }
 
-    this.helpers({
-      users() {
-        return Meteor.users.find({ _id: { $ne: this.currentUserId } });
-      }
-    });
+  confirm() {
+    if (_.isEmpty(this.caption)) return;
+    newPost(this.currentUserId);
   }
 
   newPost(userId) {
-    let post = Posts.findOne({ userIds: { $all: [this.currentUserId, userId] } });
-
-    if (post) {
-      this.hideNewPostModal();
-      return this.goToPost(post._id);
-    }
-
     this.callMethod('newPost', userId, (err, postId) => {
-      this.hideNewPostModal();
+      // this.hideNewPostModal();
       if (err) return this.handleError(err);
+      this.callMethod('newMessage', {
+        picture: data,
+        type: 'picture',
+        postId: this.postId
+      });
       this.goToPost(postId);
     });
-  }
-
-  hideNewPostModal() {
-    this.NewPost.hideModal();
   }
 
   goToPost(postId) {

@@ -1,5 +1,5 @@
 import { _ } from 'meteor/underscore';
-import { MeteorCamera } from 'meteor/perak:camera';
+import { MeteorCameraUI } from 'meteor/supaseca:camera-ui';
 import { Controller } from 'angular-ecmascript/module-helpers';
 
 export default class ProfileCtrl extends Controller {
@@ -11,7 +11,7 @@ export default class ProfileCtrl extends Controller {
   }
 
   updatePicture() {
-    MeteorCamera.getPicture({width:60, height: 60}, (err, data) => {
+    MeteorCameraUI.getPicture({width:60, height: 60}, (err, data) => {
       if(err) return this.handleError(err);
 
       this.$ionicLoading.show({
