@@ -9,7 +9,7 @@ export default class NewPostCtrl extends Controller {
 
     this.picture = this.$state.params.picture;
     if(_.isEmpty(this.picture)){
-      this.picture = "http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg";
+      this.picture = "https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg";
     }
     this.subscribe('users');
   }
@@ -25,7 +25,6 @@ export default class NewPostCtrl extends Controller {
 
   newPost(data) {
     this.callMethod('newPost', data, (err, postId) => {
-      // this.hideNewPostModal();
       if (err) return this.handleError(err);
       this.$state.go('tab.posts');
     });
@@ -43,4 +42,4 @@ export default class NewPostCtrl extends Controller {
 }
 
 NewPostCtrl.$name = 'NewPostCtrl';
-NewPostCtrl.$inject = ['$state', 'NewPost', '$ionicPopup', '$log'];
+NewPostCtrl.$inject = ['$state', '$ionicPopup', '$log'];

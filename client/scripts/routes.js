@@ -48,6 +48,14 @@ class RoutesConfig extends Config {
           }
         }
       })
+      .state('tab.camera', {
+        url: '/camera',
+        views: {
+          'tab-camera': {
+            controller: 'CameraCtrl as camera'
+          }
+        }
+      })
       .state('login', {
         url: '/login',
         templateUrl: loginTemplateUrl,
@@ -80,7 +88,6 @@ class RoutesConfig extends Config {
         templateUrl: newPostTemplateUrl,
         controller: 'NewPostCtrl as newPost',
         params: {picture: null}
-
       });
 
     this.$urlRouterProvider.otherwise('tab/posts');
