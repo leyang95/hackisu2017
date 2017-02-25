@@ -1,41 +1,34 @@
+import { _ } from 'meteor/underscore';
 import { Meteor } from 'meteor/meteor';
 import { Controller } from 'angular-ecmascript/module-helpers';
-import { Posts } from '../../../lib/collections';
+import { Posts, Messages } from '../../../lib/collections';
 
 export default class NewPostCtrl extends Controller {
   constructor() {
     super(...arguments);
 
-    this.subscribe('users');
-
-    this.helpers({
-      users() {
-        return Meteor.users.find({ _id: { $ne: this.currentUserId } });
-      }
-    });
-  }
-
-  newPost(userId) {
-    let post = Posts.findOne({ userIds: { $all: [this.currentUserId, userId] } });
-
-    if (post) {
-      this.hideNewPostModal();
-      return this.goToPost(post._id);
+    this.picture = this.$state.params.picture;
+    if(_.isEmpty(this.picture)){
+      this.picture = "http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg";
     }
+    this.subscribe('users');
+  }
 
-    this.callMethod('newPost', userId, (err, postId) => {
-      this.hideNewPostModal();
-      if (err) return this.handleError(err);
-      this.goToPost(postId);
+  confirm() {
+    if (_.isEmpty(this.picture)) return;
+    this.newPost({
+      userId: this.currentUserId,
+      picture: this.picture,
+      caption: this.caption
     });
   }
 
-  hideNewPostModal() {
-    this.NewPost.hideModal();
-  }
-
-  goToPost(postId) {
-    this.$state.go('tab.post', { postId });
+  newPost(data) {
+    this.callMethod('newPost', data, (err, postId) => {
+      // this.hideNewPostModal();
+      if (err) return this.handleError(err);
+      this.$state.go('tab.posts');
+    });
   }
 
   handleError(err) {

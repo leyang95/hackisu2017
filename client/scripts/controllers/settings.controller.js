@@ -19,5 +19,5 @@ export default class SettingsCtrl extends Controller {
     });
   }
 }
-
+SettingsCtrl.$name = 'SettingsCtrl';
 SettingsCtrl.$inject = ['$state', '$ionicPopup', '$log'];

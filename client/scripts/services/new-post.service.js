@@ -9,7 +9,7 @@ export default class NewPostService extends Service {
     this.templateUrl = newPostTemplateUrl;
   }
 
-  showModal() {
+  showModal(image) {
     this.scope = this.$rootScope.$new();
 
     this.$ionicModal.fromTemplateUrl(this.templateUrl, {
