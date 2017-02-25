@@ -11,6 +11,7 @@ import Loader from 'angular-ecmascript/module-loader';
 import { Meteor } from 'meteor/meteor';
 
 // Modules
+import CameraCtrl from '../controllers/camera.controller';
 import ChatsCtrl from '../controllers/posts.controller';
 import ChatCtrl from '../controllers/post.controller';
 import ConfirmationCtrl from '../controllers/confirmation.controller';
@@ -36,6 +37,7 @@ Angular.module(App, [
 ]);
 
 new Loader(App)
+  .load(CameraCtrl)
   .load(ChatsCtrl)
   .load(ChatCtrl)
   .load(ConfirmationCtrl)
