@@ -18,15 +18,13 @@ ecmascript@0.6.3              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.2            # Server-side component of the `meteor shell` command
 
 angular-templates
-dab0mb:ionic-assets
 mobile-status-bar@1.0.14
 launch-screen@1.1.1
 fourseven:scss
-meteoric:ionic-sass
 check@1.2.4
 npm-bcrypt@0.9.2
 mys:accounts-phone
 reywood:publish-composite
 supaseca:camera-ui
 session
-poetic:materialize-scss
+twbs:bootstrap
