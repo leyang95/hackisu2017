@@ -10,7 +10,7 @@ Meteor.publishComposite('posts', function(){
 
   return {
     find(){
-      return Posts.find({ userIds: this.userId });
+      return Posts.find({ userId: this.userId });
     },
     children: [
       {
@@ -20,7 +20,7 @@ Meteor.publishComposite('posts', function(){
       },
       {
         find(post){
-          const query = { _id: { $in: post.userIds }};
+          const query = { _id: { $in: post.userId }};
           const options = { fields: { profile: 1 }};
 
           return Meteor.users.find(query, options);

@@ -16,26 +16,20 @@ export default class NewPostCtrl extends Controller {
 
   confirm() {
     if (_.isEmpty(this.picture)) return;
-    this.newPost(this.currentUserId);
-  }
-
-  newPost(userId) {
-    this.callMethod('newPost', userId, (err, postId) => {
-      // this.hideNewPostModal();
-      if (err) return this.handleError(err);
-      this.callMethod('newMessage', {
-        picture: this.picture,
-        type: 'picture',
-        postId: this.postId
-      });
-      this.goToPost(postId);
+    this.newPost({
+      userId: this.currentUserId,
+      picture: this.picture,
+      caption: this.caption
     });
   }
 
-  goToPost(postId) {
-    this.$state.go('tab.post', { postId });
+  newPost(data) {
+    this.callMethod('newPost', data, (err, postId) => {
+      // this.hideNewPostModal();
+      if (err) return this.handleError(err);
+      this.$state.go('tab.posts');
+    });
   }
-
 
   handleError(err) {
     this.$log.error('New post creation error ', err);
