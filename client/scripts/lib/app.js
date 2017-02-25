@@ -12,6 +12,7 @@ import {Meteor} from 'meteor/meteor';
 
 // Modules
 import CameraCtrl from '../controllers/camera.controller';
+import HomeCtrl from '../controllers/home.controller';
 import PostsCtrl from '../controllers/posts.controller';
 import PostCtrl from '../controllers/post.controller';
 import ConfirmationCtrl from '../controllers/confirmation.controller';
@@ -38,6 +39,7 @@ Angular.module(App, [
 
 new Loader(App)
     .load(CameraCtrl)
+    .load(HomeCtrl)
     .load(PostsCtrl)
     .load(PostCtrl)
     .load(ConfirmationCtrl)
