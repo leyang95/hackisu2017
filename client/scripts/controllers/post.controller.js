@@ -18,7 +18,6 @@ export default class PostCtrl extends Controller {
                 return Messages.find({postId: this.postId});
             },
             data() {
-                console.log(Posts.findOne(this.postId));
                 return Posts.findOne(this.postId);
             }
         });
