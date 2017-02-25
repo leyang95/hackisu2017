@@ -1,27 +1,41 @@
-<ion-view view-title="Post">
-    <ion-nav-buttons side="right">
-        <button ng-click="post.showNewChatModal()"
-                class="button button-clear button-positive button-icon ion-ios-compose-outline"></button>
-    </ion-nav-buttons>
+<ion-view title="{{ post.data | postName }}">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear"><img class="header-picture" ng-src="{{ post.data | postPicture }}"></button>
+  </ion-nav-buttons>
+  <ion-content class="post" delegate-handle="postScroll">
+    <div class="message-list">
+      <div ng-repeat="message in post.messages" class="message-wrapper">
+        <div class="message" ng-class="message.userId === $root.currentUser._id ? 'message-mine' : 'message-other'">
+          <ng-switch on="message.type">
+            <div ng-switch-when="text" class="text"> {{ message.text }}</div>
+            <div ng-switch-when="picture" class="picture">
+              <img ng-src="{{ message.picture }}">
+            </div>
+          </ng-switch>
+          <span class="message-timestamp">{{ message.timestamp | amDateFormat: 'HH:mm' }}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar keyboard-attach class="bar-stable footer-post item-input-inset">
+    <button class="button button-clear button-icon button-positive icon ion-ios-upload-outline"></button>
 
-    <ion-content>
-        <ion-list>
-            <ion-item ng-repeat="chat in chats.data | orderBy:'-lastMessage.timestamp'"
-                      class="item-chat item-remove-animate item-avatar item-icon-right"
-                      type="item-text-wrap"
-                      href="#/tab/chats/{{ chat._id }}">
-                <img ng-src="{{ chat | chatPicture }}">
-                <h2>{{ chat | chatName }}</h2>
-                <ng-switch on="chat.lastMessage.type">
-                    <p ng-switch-when="text">{{chat.lastMessage.text}}</p>
-                    <p ng-switch-when="pictures">image</p>
-                </ng-switch>
-                <span class="last-message-timestamp">{{ chat.lastMessage.timestamp | calendar }}</span>
-                <i class="icon ion-chevron-right icon-accessory"></i>
-                <ion-option-button class="button-assertive" ng-click="chats.remove(chat)">
-                    Delete
-                </ion-option-button>
-            </ion-item>
-        </ion-list>
-    </ion-content>
+    <label class="item-input-wrapper">
+      <input ng-model="post.message"
+             dir="auto"
+             type="text"
+             on-return="post.sendMessage(); post.closeKeyboard()"
+             on-focus="post.inputUp()"
+             on-blur="post.inputDown()"/>
+    </label>
+
+    <span ng-if="post.message.length > 0">
+      <button ng-click="post.sendMessage()" class="button button-clear button-positive">Send</button>
+    </span>
+    <span ng-if="!post.message || post.message.length === 0">
+      <button ng-click="post.sendPicture()" class="button button-clear button-icon button-positive icon ion-ios-camera-outline"></button>
+      <i class="buttons-seperator icon ion-android-more-vertical"></i>
+      <button class="button button-clear button-icon button-positive icon ion-ios-mic-outline"></button>
+    </span>
+  </ion-footer-bar>
 </ion-view>

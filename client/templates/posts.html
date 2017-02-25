@@ -1,0 +1,27 @@
+<ion-view view-title="Post">
+    <ion-nav-buttons side="right">
+        <button ng-click="post.showNewPostModal()"
+                class="button button-clear button-positive button-icon ion-ios-compose-outline"></button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="post in posts.data | orderBy:'-lastMessage.timestamp'"
+                      class="item-post item-remove-animate item-avatar item-icon-right"
+                      type="item-text-wrap"
+                      href="#/tab/posts/{{ post._id }}">
+                <img ng-src="{{ post | postPicture }}">
+                <h2>{{ post | postName }}</h2>
+                <ng-switch on="post.lastMessage.type">
+                    <p ng-switch-when="text">{{post.lastMessage.text}}</p>
+                    <p ng-switch-when="pictures">image</p>
+                </ng-switch>
+                <span class="last-message-timestamp">{{ post.lastMessage.timestamp | calendar }}</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <ion-option-button class="button-assertive" ng-click="posts.remove(post)">
+                    Delete
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -5,20 +5,20 @@ import { MeteorCameraUI } from 'meteor/okland:camera-ui';
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { Posts, Messages } from '../../../lib/collections';
 
-export default class ChatCtrl extends Controller {
+export default class PostCtrl extends Controller {
   constructor() {
     super(...arguments);
 
-    this.chatId = this.$stateParams.chatId;
+    this.postId = this.$stateParams.postId;
     this.isIOS = Ionic.Platform.isWebView() && Ionic.Platform.isIOS();
     this.isCordova = Meteor.isCordova;
 
     this.helpers({
       messages() {
-        return Messages.find({ chatId: this.chatId });
+        return Messages.find({ postId: this.postId });
       },
       data() {
-        return Posts.findOne(this.chatId);
+        return Posts.findOne(this.postId);
       }
     });
 
@@ -31,7 +31,7 @@ export default class ChatCtrl extends Controller {
     this.callMethod('newMessage', {
       text: this.message,
       type: 'text',
-      chatId: this.chatId
+      postId: this.postId
     });
 
     delete this.message;
@@ -44,7 +44,7 @@ export default class ChatCtrl extends Controller {
       this.callMethod('newMessage', {
         picture: data,
         type: 'picture',
-        chatId: this.chatId
+        postId: this.postId
       });
     });
   }
@@ -62,7 +62,7 @@ export default class ChatCtrl extends Controller {
       this.keyboardHeight = 0;
     }
 
-    this.$ionicScrollDelegate.$getByHandle('chatScroll').resize();
+    this.$ionicScrollDelegate.$getByHandle('postScroll').resize();
   }
 
   closeKeyboard () {
