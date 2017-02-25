@@ -12,8 +12,6 @@ import {Meteor} from 'meteor/meteor';
 
 // Modules
 import CameraCtrl from '../controllers/camera.controller';
-import ChatsCtrl from '../controllers/posts.controller';
-import ChatCtrl from '../controllers/post.controller';
 import PostsCtrl from '../controllers/posts.controller';
 import PostCtrl from '../controllers/post.controller';
 import ConfirmationCtrl from '../controllers/confirmation.controller';
@@ -39,20 +37,7 @@ Angular.module(App, [
 ]);
 
 new Loader(App)
-  .load(CameraCtrl)
-  .load(ChatsCtrl)
-  .load(ChatCtrl)
-  .load(ConfirmationCtrl)
-  .load(LoginCtrl)
-  .load(NewChatCtrl)
-  .load(ProfileCtrl)
-  .load(SettingsCtrl)
-  .load(InputDirective)
-  .load(CalendarFilter)
-  .load(ChatNameFilter)
-  .load(ChatPictureFilter)
-  .load(NewChatService)
-  .load(Routes);
+    .load(CameraCtrl)
     .load(PostsCtrl)
     .load(PostCtrl)
     .load(ConfirmationCtrl)
