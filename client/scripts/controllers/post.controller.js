@@ -1,7 +1,7 @@
 import Ionic from 'ionic-scripts';
 import { _ } from 'meteor/underscore';
 import { Meteor } from 'meteor/meteor';
-import { MeteorCameraUI } from 'meteor/okland:camera-ui';
+import { MeteorCamera } from 'meteor/perak:camera';
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { Posts, Messages } from '../../../lib/collections';
 
@@ -38,7 +38,7 @@ export default class PostCtrl extends Controller {
   }
 
   sendPicture() {
-      MeteorCameraUI.getPicture({}, (err, data) => {
+      MeteorCamera.getPicture({}, (err, data) => {
         if(err) return this.handleError(err);
 
       this.callMethod('newMessage', {
