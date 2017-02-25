@@ -28,7 +28,7 @@ This button calls a controller method, which we will implement now in the contro
 [{]: <helper> (diff_step 5.2)
 #### Step 5.2: Add new chat button logic
 
-##### Changed client/scripts/controllers/chats.controller.js
+##### Changed client/scripts/controllers/post.controller.js
 ```diff
 @@ -12,9 +12,14 @@
  ┊12┊12┊    });
@@ -281,7 +281,7 @@ We will also rewrite the logic of `removeChat()` function in the `ChatsCtrl` and
 [{]: <helper> (diff_step 5.9)
 #### Step 5.9: Call remove chat method
 
-##### Changed client/scripts/controllers/chats.controller.js
+##### Changed client/scripts/controllers/post.controller.js
 ```diff
 @@ -17,7 +17,7 @@
  ┊17┊17┊  }

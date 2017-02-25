@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Controller } from 'angular-ecmascript/module-helpers';
-import { Chats } from '../../../lib/collections';
+import { Posts } from '../../../lib/collections';
 
-export default class NewChatCtrl extends Controller {
+export default class Posts extends Controller {
   constructor() {
     super(...arguments);
 
@@ -16,11 +16,11 @@ export default class NewChatCtrl extends Controller {
   }
 
   newChat(userId) {
-    let chat = Chats.findOne({ userIds: { $all: [this.currentUserId, userId] } });
+    let post = Posts.findOne({ userIds: { $all: [this.currentUserId, userId] } });
 
-    if (chat) {
+    if (post) {
       this.hideNewChatModal();
-      return this.goToChat(chat._id);
+      return this.goToChat(post._id);
     }
 
     this.callMethod('newChat', userId, (err, chatId) => {
