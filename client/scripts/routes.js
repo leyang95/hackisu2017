@@ -1,6 +1,7 @@
 import { _ } from 'meteor/underscore';
 import { Config, Runner } from 'angular-ecmascript/module-helpers';
 
+import homeTemplateUrl from '../templates/home.html';
 import newPostTemplateUrl from '../templates/newPost.html';
 import postTemplateUrl from '../templates/post.html';
 import postsTemplateUrl from '../templates/posts.html';
@@ -80,6 +81,15 @@ class RoutesConfig extends Config {
           'tab-settings': {
             templateUrl: settingsTemplateUrl,
             controller: 'SettingsCtrl as settings',
+          }
+        }
+      })
+      .state('tab.home', {
+        url: '/home',
+        views: {
+          'tab-home': {
+            templateUrl: homeTemplateUrl,
+            controller: 'HomeCtrl as home',
           }
         }
       })
