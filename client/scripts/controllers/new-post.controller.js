@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { Posts } from '../../../lib/collections';
 
-export default class Posts extends Controller {
+export default class Post extends Controller {
   constructor() {
     super(...arguments);
 

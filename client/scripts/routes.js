@@ -2,7 +2,7 @@ import { _ } from 'meteor/underscore';
 import { Config, Runner } from 'angular-ecmascript/module-helpers';
 
 import postTemplateUrl from '../templates/post.html';
-import chatTemplateUrl from '../templates/chat.html';
+import postsTemplateUrl from '../templates/posts.html';
 import confirmationTemplateUrl from '../templates/confirmation.html';
 import loginTemplateUrl from '../templates/login.html';
 import profileTemplateUrl from '../templates/profile.html';
@@ -24,8 +24,8 @@ class RoutesConfig extends Config {
         templateUrl: tabsTemplateUrl,
         resolve: {
           user: this.isAuthorized,
-          chats() {
-            return Meteor.subscribe('chats');
+          posts() {
+            return Meteor.subscribe('posts');
           }
         }
       })
