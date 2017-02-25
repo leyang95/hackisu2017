@@ -1,15 +1,17 @@
 <ion-view view-title="Home">
     <ion-nav-buttons side="right">
     </ion-nav-buttons>
-    <ion-scroll zooming="true" direction="y" style="height:700px">
-      <div class="container">
-        <div  class="card " ng-repeat="post in home.data">
-            <a> <img ng-src="{{ post.picture}}" class="card-img-top img-responsive"></a>
-            <div class="card-block">
-              <h4 class="card-title">{{ post | postName}}</h4>
-              <p class="card-text">{{ post.caption }}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+    <ion-scroll zooming="true" direction="y" style="height:670px">
+      <div class="container card-container">
+        <div class="card home-item" ng-repeat="post in home.data">
+          <div class="card-user-layer">
+            <h4 class="card-title">{{ post | postName}}</h4>
+          </div>
+          <a> <img ng-src="{{ post.picture}}" class="card-img-top img-responsive"></a>
+          <div class="card-block">
+            <p class="card-text">{{ post.caption }}</p>
+            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+          </div>
         </div>
       </div>
     </ion-scroll>

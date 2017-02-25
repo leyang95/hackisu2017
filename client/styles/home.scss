@@ -1,0 +1,24 @@
+.card-container {
+  margin-top: 40px;
+}
+
+.home-item{
+  .card-user-layer{
+      height:40px;
+      width:100%;
+      padding:5px;
+  }
+
+  .card-block{
+    padding:10px;
+    position:relative;
+    min-height: 55px;
+  }
+
+  .glyphicon-thumbs-up{
+    font-size:20px;
+    position:absolute;
+    top: 30px;
+    right: 10px;
+  }
+}
