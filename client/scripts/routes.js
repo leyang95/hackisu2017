@@ -38,12 +38,12 @@ class RoutesConfig extends Config {
           }
         }
       })
-      .state('tab.chat', {
-        url: '/chats/:chatId',
+      .state('tab.post', {
+        url: '/posts/:postId',
         views: {
-          'tab-chats': {
-            templateUrl: chatTemplateUrl,
-            controller: 'ChatCtrl as chat'
+          'tab-posts': {
+            templateUrl: postTemplateUrl,
+            controller: 'PostCtrl as post'
           }
         }
       })
@@ -75,7 +75,7 @@ class RoutesConfig extends Config {
         }
       });
 
-    this.$urlRouterProvider.otherwise('tab/chats');
+    this.$urlRouterProvider.otherwise('tab/posts');
   }
 
   isAuthorized($auth) {

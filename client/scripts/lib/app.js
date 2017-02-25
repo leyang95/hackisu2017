@@ -12,7 +12,7 @@ import { Meteor } from 'meteor/meteor';
 
 // Modules
 import ChatsCtrl from '../controllers/posts.controller';
-import ChatCtrl from '../controllers/chat.controller';
+import ChatCtrl from '../controllers/post.controller';
 import ConfirmationCtrl from '../controllers/confirmation.controller';
 import LoginCtrl from '../controllers/login.controller';
 import NewChatCtrl from '../controllers/new-post.controller';

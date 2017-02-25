@@ -844,7 +844,7 @@ And the last missing feature is about adding auto-scroll to the messages list in
 [{]: <helper> (diff_step 4.27)
 #### Step 4.27: Add auto-scroll to chat controller
 
-##### Changed client/scripts/controllers/chat.controller.js
+##### Changed client/scripts/controllers/post.controller.js
 ```diff
 @@ -20,6 +20,8 @@
  ┊20┊20┊        return Chats.findOne(this.chatId);

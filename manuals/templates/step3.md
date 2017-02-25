@@ -12,7 +12,7 @@ Let's add a very basic view with the chat's details. The file will be located in
 
 {{{diff_step 3.2}}}
 
-Now we need to implement the logic in the controller, so let's create it in `client/scripts/controllers/chat.controller.js` and call it `ChatCtrl`.
+Now we need to implement the logic in the controller, so let's create it in `client/scripts/controllers/post.controller.js` and call it `ChatCtrl`.
 
 We will use the `$stateParams` provider to get the chat id and then we will define a helper that will help us fetch the chat that we want.
 
