@@ -251,7 +251,7 @@ Let’s create an `AngularJS` controller that we will connect to the chats view 
 [{]: <helper> (diff_step 1.9)
 #### Step 1.9: Create chats controller
 
-##### Added client/scripts/controllers/chats.controller.js
+##### Added client/scripts/controllers/post.controller.js
 ```diff
 @@ -0,0 +1,6 @@
 +┊ ┊1┊import { Controller } from 'angular-ecmascript/module-helpers';
@@ -319,7 +319,7 @@ Now let’s add the static data to the `ChatsCtrl`. We will create a stub schema
 [{]: <helper> (diff_step 1.12)
 #### Step 1.12: Add data stub to chats controller
 
-##### Changed client/scripts/controllers/chats.controller.js
+##### Changed client/scripts/controllers/post.controller.js
 ```diff
 @@ -1,6 +1,58 @@
 +┊  ┊ 1┊import Moment from 'moment';
@@ -537,7 +537,7 @@ Implement the `remove(chat)` method inside our `ChatsCtrl`:
 [{]: <helper> (diff_step 1.19)
 #### Step 1.19: Add delete button logic to chats controller
 
-##### Changed client/scripts/controllers/chats.controller.js
+##### Changed client/scripts/controllers/post.controller.js
 ```diff
 @@ -53,6 +53,10 @@
  ┊53┊53┊      }

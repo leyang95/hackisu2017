@@ -124,7 +124,7 @@ So let's use `angular-meteor`'s API for this. We will define a helper named `dat
 [{]: <helper> (diff_step 2.4)
 #### Step 2.4: Add chats collection helper to chats controller
 
-##### Changed client/scripts/controllers/chats.controller.js
+##### Changed client/scripts/controllers/post.controller.js
 ```diff
 @@ -1,57 +1,15 @@
 -┊ 1┊  ┊import Moment from 'moment';
@@ -197,7 +197,7 @@ Now that the data comes from the server, we need to modify the `remove()` method
 [{]: <helper> (diff_step 2.5)
 #### Step 2.5: Update delete button logic to use controller helper
 
-##### Changed client/scripts/controllers/chats.controller.js
+##### Changed client/scripts/controllers/post.controller.js
 ```diff
 @@ -13,7 +13,7 @@
  ┊13┊13┊  }
