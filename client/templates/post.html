@@ -21,8 +21,6 @@
         </div>
     </ion-content>
     <ion-footer-bar keyboard-attach class="bar-stable footer-post item-input-inset">
-        <button class="button button-clear button-icon button-positive icon ion-ios-upload-outline"></button>
-
         <label class="item-input-wrapper">
             <input ng-model="post.message"
                    dir="auto"
@@ -32,14 +30,6 @@
                    on-blur="post.inputDown()"/>
         </label>
 
-        <span ng-if="post.message.length > 0">
-      <button ng-click="post.sendMessage()" class="button button-clear button-positive">Send</button>
-    </span>
-        <span ng-if="!post.message || post.message.length === 0">
-      <button ng-click="post.sendPicture()"
-              class="button button-clear button-icon button-positive icon ion-ios-camera-outline"></button>
-      <i class="buttons-seperator icon ion-android-more-vertical"></i>
-      <button class="button button-clear button-icon button-positive icon ion-ios-mic-outline"></button>
-    </span>
+        <button ng-click="post.sendMessage()" class="button button-clear button-positive">Comment</button>
     </ion-footer-bar>
 </ion-view>

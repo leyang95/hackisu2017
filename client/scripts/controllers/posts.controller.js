@@ -1,20 +1,20 @@
-import { Controller } from 'angular-ecmascript/module-helpers';
-import { Posts } from '../../../lib/collections';
+import {Controller} from 'angular-ecmascript/module-helpers';
+import {Posts} from '../../../lib/collections';
 
 export default class PostsCtrl extends Controller {
-  constructor() {
-    super(...arguments);
+    constructor() {
+        super(...arguments);
 
-    this.helpers({
-      data() {
-        return Posts.find();
-      }
-    });
-  }
+        this.helpers({
+            data() {
+                return Posts.find({userId: Meteor.userId()});
+            }
+        });
+    }
 
-  remove(post) {
-    this.callMethod('removePost', post._id);
-  }
+    remove(post) {
+        this.callMethod('removePost', post._id);
+    }
 
 }
 

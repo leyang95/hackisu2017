@@ -24,8 +24,6 @@ export default class PostCtrl extends Controller {
                 return this.currentUser.profile;
             }
         });
-
-        this.autoScroll();
     }
 
     sendMessage() {
@@ -72,23 +70,6 @@ export default class PostCtrl extends Controller {
         if (this.isCordova) {
             cordova.plugins.Keyboard.close();
         }
-    }
-
-    autoScroll() {
-        let recentMessagesNum = this.messages.length;
-
-        this.autorun(() => {
-            const currMessagesNum = this.getCollectionReactively('messages').length;
-            const animate = recentMessagesNum != currMessagesNum;
-            recentMessagesNum = currMessagesNum;
-            this.scrollBottom(animate);
-        });
-    }
-
-    scrollBottom(animate) {
-        this.$timeout(() => {
-            this.$ionicScrollDelegate.$getByHandle('postScroll').scrollBottom(animate);
-        }, 300);
     }
 
     handleError(err) {
