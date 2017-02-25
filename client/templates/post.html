@@ -1,8 +1,9 @@
 <ion-view title="Food">
     <ion-content class="post" delegate-handle="postScroll">
         <img src="{{post.data.picture}}" width="100%" height="200px">
-        <div class="itemConcepts" ng-repeat="concept in post.data.concepts">
-            <button class="button button-bar-inline">{{concept.name}}</button>
+
+        <div class="itemConcepts">
+            <a class="waves-effect waves-light btn">{{concept.name}}</a>
         </div>
     </ion-content>
     <ion-footer-bar keyboard-attach class="bar-stable footer-post item-input-inset">
