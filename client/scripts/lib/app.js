@@ -31,9 +31,9 @@ import NewPostService from '../services/new-post.service';
 import Routes from '../routes';
 
 const App = 'Whatsapp';
-Accounts.ui.config({
-  passwordSignupFields: 'USERNAME_ONLY',
-});
+  Accounts.ui.config({
+    passwordSignupFields: 'USERNAME_ONLY',
+  });
 
 // App
 Angular.module(App, [

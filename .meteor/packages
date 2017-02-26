@@ -25,13 +25,13 @@ fourseven:scss
 meteoric:ionic-sass
 check@1.2.4
 npm-bcrypt@0.9.2
-mys:accounts-phone
 reywood:publish-composite
 supaseca:camera-ui
 session
 poetic:materialize-scss
 twbs:bootstrap
-accounts-password
-dotansimha:accounts-ui-angular
 http
 autopublish
+accounts-base
+dotansimha:accounts-ui-angular
+accounts-password

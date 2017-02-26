@@ -1,11 +1,20 @@
 
 .login-background{
   background:url('/restaurant-blur.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
-login-buttons{
-    margin-right: 200px;
-    font-size:20px;
+.login-close-text{
+  display:none;
+}
+
+// .login-link-text{
+//   display:none;
+// }
+
+#login-dropdown-list {
+    top: 250px;
+    left: -233px;
+    display:visible !important;
 }
