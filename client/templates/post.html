@@ -1,6 +1,6 @@
 <ion-view title="Food">
     <ion-nav-buttons side="right">
-        <span ng-if="post.userId == this.userId">
+        <span ng-if="post.data.userId == post.userId">
         <button class="btn btn-danger" ng-click="post.removePost()">Delete</button>
             </span>
     </ion-nav-buttons>
