@@ -16,7 +16,7 @@
         <div class="comments" ng-repeat="msg in post.messages">
             <ion-item>
                 <div>
-                    <label>{{post.user.name}}</label>
+                    <label>{{post.user}}</label>
                     <span class="timeStamp">{{ msg.timestamp | amDateFormat: 'HH:mm' }}</span>
                 </div>
                 <div>
