@@ -6,10 +6,8 @@ export default class PostNameFilter extends Filter {
   filter(post) {
     if (!post) return;
 
-    let otherId = _.without(post.userIds, Meteor.userId())[0];
-    let otherUser = Meteor.users.findOne(otherId);
-    let hasName = otherUser && otherUser.profile && otherUser.profile.name;
-    return hasName ? otherUser.profile.name : post.name || 'Lorem Ipsum';
+    let otherUser = Meteor.users.findOne(post.userId);
+    return otherUser.username;
   }
 }
 
