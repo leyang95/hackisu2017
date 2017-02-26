@@ -20,9 +20,6 @@ export default class PostCtrl extends Controller {
             data() {
                 return Posts.findOne(this.postId);
             },
-            user(){
-                return this.currentUser.username;
-            },
             userId(){
                 return Meteor.userId();
             }
