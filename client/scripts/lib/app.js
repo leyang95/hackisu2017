@@ -30,10 +30,10 @@ import PostPictureFilter from '../filters/post-picture.filter';
 import NewPostService from '../services/new-post.service';
 import Routes from '../routes';
 
-const App = 'Whatsapp';
-  Accounts.ui.config({
-    passwordSignupFields: 'USERNAME_ONLY',
-  });
+const App = 'InstaGrub';
+Accounts.ui.config({
+  passwordSignupFields: 'USERNAME_ONLY',
+});
 
 // App
 Angular.module(App, [
