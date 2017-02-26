@@ -13,7 +13,12 @@
             <img src="/user-default.svg" class="img-responsive" width="30px" height="30px">
           </ion-avatar>
           <span style="margin-left:5%; ">{{user.username}}</span>
-        <button class="btn btn-primary pull-right" primary>Add</button>
+          <span  ng-if="!search.areFriend(user._id)">
+            <button class="btn btn-primary pull-right" ng-click="search.follow(user._id)">Follow</button>
+          </span>
+          <span  ng-if="search.areFriend(user._id)">
+            <button class="btn btn-primary pull-right" ng-click="search.unFollow(user._id)">Unfollow</button>
+          </span>
       </ion-item>
     </ion-content>
 </ion-view>
