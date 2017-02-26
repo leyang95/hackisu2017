@@ -7,7 +7,7 @@ export default class HomeCtrl extends Controller {
 
     this.helpers({
       data() {
-        if(Meteor.user().profile){
+        if(!Meteor.user().profile){
           return;
         }
         var friends = Meteor.user().profile.friendIds;
