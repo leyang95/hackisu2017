@@ -29,7 +29,6 @@ export default class SearchCtrl extends Controller {
   }
 
   confirm(){
-    $scope.users = {};
   }
 
   follow(otherId){
