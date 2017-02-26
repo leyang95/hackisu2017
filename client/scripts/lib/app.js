@@ -30,7 +30,7 @@ import PostPictureFilter from '../filters/post-picture.filter';
 import NewPostService from '../services/new-post.service';
 import Routes from '../routes';
 
-const App = 'Whatsapp';
+const App = 'InstaGrub';
 Accounts.ui.config({
   passwordSignupFields: 'USERNAME_ONLY',
 });
