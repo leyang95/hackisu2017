@@ -25,6 +25,7 @@ class RoutesConfig extends Config {
         url: '/tab',
         abstract: true,
         templateUrl: tabsTemplateUrl,
+        controller: 'CameraCtrl as camera',
         resolve: {
           user: this.isAuthorized,
           posts() {
@@ -54,7 +55,6 @@ class RoutesConfig extends Config {
         url: '/camera',
         views: {
           'tab-camera': {
-            controller: 'CameraCtrl as camera'
           }
         }
       })
