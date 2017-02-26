@@ -9,7 +9,7 @@ export default class NewPostCtrl extends Controller {
 
         this.picture = this.$state.params.picture;
         if (_.isEmpty(this.picture)) {
-            this.picture = "http://www.technobuffalo.com/wp-content/uploads/2014/04/fast-food.jpg";
+            return;
         }
         this.subscribe('users');
     }
