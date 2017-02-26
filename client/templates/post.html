@@ -7,9 +7,16 @@
         <h2>What's inside</h2>
         <div class="itemConcepts">
             <a ng-repeat="concept in post.data.concepts">
-                <span class="label label-primary">{{concept.name}}</span>
+                <span class="label label-primary" ng-click="post.showNutrientInfo(concept.name)">{{concept.name}}</span>
             </a>
         </div>
+        <h2>Nutrition level</h2>
+        <ion-list class="nutrients">
+            <ion-item ng-repeat="nutrient in post.data.nutrients">
+                <span>{{nutrient.food_name}}</span>
+                <span class="pull-right">Calories: {{nutrient.nf_calories}}</span>
+            </ion-item>
+        </ion-list>
         <h2>Comments</h2>
         <div class="comments" ng-repeat="msg in post.messages">
             <ion-item>

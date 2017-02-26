@@ -26,6 +26,16 @@ export default class PostCtrl extends Controller {
         });
     }
 
+    showNutrientInfo(food){
+        var post = Posts.findOne(this.postId);
+        var nutrient = post.nutrients[food];
+        this.$ionicPopup.alert({
+            title: "Nutrition Level",
+            template: nutrient["food_name"],
+            oktype: 'button-positive'
+        });
+    }
+
     sendMessage() {
         if (_.isEmpty(this.message)) return;
 
