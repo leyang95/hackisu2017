@@ -1,6 +1,11 @@
-.login {
-  .instructions {
-    margin: 50px 0;
-    padding: 0 15px;
-  }
+
+.login-background{
+  background:url('/restaurant-blur.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+login-buttons{
+    margin-right: 200px;
+    font-size:20px;
 }

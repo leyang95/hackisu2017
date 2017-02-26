@@ -8,7 +8,9 @@ import 'angular-ui-router';
 import 'ionic-scripts';
 import Angular from 'angular';
 import Loader from 'angular-ecmascript/module-loader';
-import {Meteor} from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
+
 
 // Modules
 import CameraCtrl from '../controllers/camera.controller';
@@ -28,12 +30,16 @@ import NewPostService from '../services/new-post.service';
 import Routes from '../routes';
 
 const App = 'Whatsapp';
+Accounts.ui.config({
+  passwordSignupFields: 'USERNAME_ONLY',
+});
 
 // App
 Angular.module(App, [
     'angular-meteor',
     'angular-meteor.auth',
     'angularMoment',
+    'accounts.ui',
     'ionic'
 ]);
 

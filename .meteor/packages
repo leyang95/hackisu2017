@@ -31,3 +31,5 @@ supaseca:camera-ui
 session
 poetic:materialize-scss
 twbs:bootstrap
+accounts-password
+dotansimha:accounts-ui-angular
