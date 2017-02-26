@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Posts, Messages } from '../lib/collections';
 
 Meteor.publish('users', function(){
-  return Meteor.users.find({}, { fields: {profile : 1}});
+  return Meteor.users.find({});
 });
 
 Meteor.publishComposite('posts', function(){
