@@ -38,6 +38,13 @@ export default class PostCtrl extends Controller {
         delete this.message;
     }
 
+    removePost() {
+        this.callMethod('removePost', this.postId, (err) => {
+            if (err) return this.handleError(err);
+            this.$state.go('tab.posts');
+        });
+    }
+
     sendPicture() {
         MeteorCameraUI.getPicture({}, (err, data) => {
             if (err) return this.handleError(err);
@@ -102,4 +109,4 @@ export default class PostCtrl extends Controller {
 }
 
 PostCtrl.$name = 'PostCtrl';
-PostCtrl.$inject = ['$stateParams', '$timeout', '$ionicScrollDelegate', '$ionicPopup', '$log'];
+PostCtrl.$inject = ['$state', '$stateParams', '$timeout', '$ionicScrollDelegate', '$ionicPopup', '$log'];

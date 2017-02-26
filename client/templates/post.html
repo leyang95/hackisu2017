@@ -1,4 +1,7 @@
 <ion-view title="Food">
+    <ion-nav-buttons side="right">
+        <button class="btn btn-danger" ng-click="post.removePost()">Delete</button>
+    </ion-nav-buttons>
     <ion-content class="post" delegate-handle="postScroll">
         <img class="img-responsive" ng-src="{{post.data.picture}}">
         <h2>What's inside</h2>
@@ -29,7 +32,6 @@
                    on-focus="post.inputUp()"
                    on-blur="post.inputDown()"/>
         </label>
-
         <button ng-click="post.sendMessage()" class="button button-clear button-positive">Comment</button>
     </ion-footer-bar>
 </ion-view>
