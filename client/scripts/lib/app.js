@@ -13,6 +13,7 @@ import { Accounts } from 'meteor/accounts-base';
 
 
 // Modules
+import SearchCtrl from '../controllers/search.controller';
 import CameraCtrl from '../controllers/camera.controller';
 import HomeCtrl from '../controllers/home.controller';
 import PostsCtrl from '../controllers/posts.controller';
@@ -44,6 +45,7 @@ Angular.module(App, [
 ]);
 
 new Loader(App)
+    .load(SearchCtrl)
     .load(CameraCtrl)
     .load(HomeCtrl)
     .load(PostsCtrl)

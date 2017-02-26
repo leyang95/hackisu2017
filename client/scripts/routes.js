@@ -1,6 +1,7 @@
 import { _ } from 'meteor/underscore';
 import { Config, Runner } from 'angular-ecmascript/module-helpers';
 
+import searchTemplateUrl from '../templates/search.html';
 import homeTemplateUrl from '../templates/home.html';
 import newPostTemplateUrl from '../templates/newPost.html';
 import postTemplateUrl from '../templates/post.html';
@@ -90,6 +91,19 @@ class RoutesConfig extends Config {
           'tab-home': {
             templateUrl: homeTemplateUrl,
             controller: 'HomeCtrl as home',
+          }
+        }
+      })
+      .state('tab.search', {
+        url: '/search',
+        views: {
+          'tab-search': {
+            templateUrl: searchTemplateUrl,
+            controller: 'SearchCtrl as search',
+          }
+        }, resolve : {
+          users() {
+            return Meteor.subscribe('users');
           }
         }
       })

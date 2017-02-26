@@ -1,0 +1,24 @@
+<ion-view view-title="Search">
+
+    <ion-content>
+      <div class="input-group add-on">
+        <input class="form-control" ng-change="search.confirm()" ng-model="search.query" type="text" placeholder="who you're looking for?">
+        <div class="input-group-btn">
+          <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+      <!-- <a href="#!/tab/posts/{{ post._id }}"> <img ng-src="{{ post.picture}}"></a> -->
+      <ion-item ng-repeat="user in search.users" class=" item-remove-animate item-avatar item-icon-right">
+          <ion-avatar class="pull-left">
+            <img src="/user-default.svg" class="img-responsive" width="30px" height="30px">
+          </ion-avatar>
+          <span style="margin-left:5%; ">{{user.username}}</span>
+          <span  ng-if="!search.areFriend(user._id)">
+            <button class="btn btn-primary pull-right" ng-click="search.follow(user._id)">Follow</button>
+          </span>
+          <span  ng-if="search.areFriend(user._id)">
+            <button class="btn btn-primary pull-right" ng-click="search.unFollow(user._id)">Unfollow</button>
+          </span>
+      </ion-item>
+    </ion-content>
+</ion-view>
