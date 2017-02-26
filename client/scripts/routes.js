@@ -114,7 +114,7 @@ class RoutesConfig extends Config {
         params: {picture: null}
       });
 
-    this.$urlRouterProvider.otherwise('tab/posts');
+    this.$urlRouterProvider.otherwise('tab/home');
   }
 
   isAuthorized($auth) {
