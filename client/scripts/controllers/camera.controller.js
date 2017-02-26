@@ -11,8 +11,10 @@ export default class CameraCtrl extends Controller {
 
   takePicture(){
     MeteorCameraUI.getPicture({}, (err, data) => {
-      if(err) return this.handleError(err);
-      this.$state.go('newPost', {picture: data});
+      if(err) return;
+      if(data){
+          this.$state.go('newPost', {picture: data});
+      }
     });
   }
 

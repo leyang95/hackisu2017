@@ -113,6 +113,12 @@
 
 .itemConcepts a {
   font-size: 20px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.itemConcepts span{
+  padding: 5px;
 }
 
 .comments .timeStamp {
