@@ -7,6 +7,9 @@ export default class HomeCtrl extends Controller {
 
     this.helpers({
       data() {
+        if(Meteor.user().profile){
+          return;
+        }
         var friends = Meteor.user().profile.friendIds;
         friends.push(Meteor.userId());
         return Posts.find({userId: {$in : friends}});
