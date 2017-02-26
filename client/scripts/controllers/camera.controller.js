@@ -6,13 +6,15 @@ export default class CameraCtrl extends Controller {
   constructor() {
     super(...arguments);
 
+
+  }
+
+  takePicture(){
     MeteorCameraUI.getPicture({}, (err, data) => {
       if(err) return this.handleError(err);
       this.$state.go('newPost', {picture: data});
     });
   }
-
-
 
   handleError(err){
     if(err.error == 'cancel' ) return;
@@ -27,4 +29,4 @@ export default class CameraCtrl extends Controller {
 }
 
 CameraCtrl.$name = 'CameraCtrl';
-CameraCtrl.$inject =['$state', '$ionicPopup', '$log'];
+CameraCtrl.$inject =['$state', '$ionicPopup', '$log', '$scope'];
