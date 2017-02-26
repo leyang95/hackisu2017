@@ -2,23 +2,54 @@
   margin-top: 40px;
 }
 
-.home-item{
-  .card-user-layer{
-      height:40px;
-      width:100%;
-      padding:5px;
+.home-item {
+  .card-user-layer {
+    height: 40px;
+    width: 100%;
+    padding: 5px;
   }
 
-  .card-block{
-    padding:10px;
-    position:relative;
+  .card-block {
+    padding: 10px;
+    position: relative;
     min-height: 55px;
   }
 
-  .glyphicon-thumbs-up{
-    font-size:20px;
-    position:absolute;
+  .glyphicon-thumbs-up {
+    font-size: 20px;
+    position: absolute;
     top: 30px;
     right: 10px;
   }
+}
+
+.ion-ios-home,
+.ion-ios-home-outline {
+  content: url('/home.svg') !important;
+  padding-top: 2px;
+}
+
+.ion-ios-clock,
+.ion-ios-clock-outline{
+  content: url('/clock.svg') !important;
+  padding-top: 2px;
+}
+
+.ion-ios-camera,
+.ion-ios-camera-outline{
+  content: url('/camera.svg') !important;
+  padding-top: 2px;
+}
+
+.ion-ios-albums,
+.ion-ios-albums-outline,
+.ion-ios-albums-outline::before{
+  content: url('/layout.svg') !important;
+  padding-top: 2px;
+}
+
+.ion-ios-cog,
+.ion-ios-cog-outline{
+  content: url('/settings.svg') !important;
+  padding-top: 2px;
 }
