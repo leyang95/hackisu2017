@@ -10,7 +10,12 @@
       <!-- <a href="#!/tab/posts/{{ post._id }}"> <img ng-src="{{ post.picture}}"></a> -->
       <ion-item ng-repeat="user in search.users" class=" item-remove-animate item-avatar item-icon-right">
           <ion-avatar class="pull-left">
-            <img src="/user-default.svg" class="img-responsive" width="30px" height="30px">
+            <span ng-if="!user.profile.picture">
+              <img src="/user-default.svg" class="img-responsive" width="50px" height="50px">
+            </span>
+            <span ng-if="user.profile.picture">
+              <img src="{{user.profile.picture}}" class="img-responsive img-circle" width="45px" height="60px">
+            </span>
           </ion-avatar>
           <span style="margin-left:5%; ">{{user.username}}</span>
           <span  ng-if="!search.areFriend(user._id)">
