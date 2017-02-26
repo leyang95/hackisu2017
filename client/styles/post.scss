@@ -111,10 +111,14 @@
   }
 }
 
-.itemConcepts a{
+.itemConcepts a {
   font-size: 20px;
 }
 
 .comments .timeStamp {
   float: right;
+}
+
+.popup-container popup-showing active div {
+  font-size: 12px;
 }

@@ -1,6 +1,8 @@
 <ion-view title="Food">
     <ion-nav-buttons side="right">
+        <span ng-if="post.userId == this.userId">
         <button class="btn btn-danger" ng-click="post.removePost()">Delete</button>
+            </span>
     </ion-nav-buttons>
     <ion-content class="post" delegate-handle="postScroll">
         <img class="img-responsive" ng-src="{{post.data.picture}}">
@@ -10,13 +12,6 @@
                 <span class="label label-primary" ng-click="post.showNutrientInfo(concept.name)">{{concept.name}}</span>
             </a>
         </div>
-        <h2>Nutrition level</h2>
-        <ion-list class="nutrients">
-            <ion-item ng-repeat="nutrient in post.data.nutrients">
-                <span>{{nutrient.food_name}}</span>
-                <span class="pull-right">Calories: {{nutrient.nf_calories}}</span>
-            </ion-item>
-        </ion-list>
         <h2>Comments</h2>
         <div class="comments" ng-repeat="msg in post.messages">
             <ion-item>

@@ -26,14 +26,18 @@ export default class PostCtrl extends Controller {
         });
     }
 
-    showNutrientInfo(food){
+    showNutrientInfo(food) {
         var post = Posts.findOne(this.postId);
         var nutrient = post.nutrients[food];
-        this.$ionicPopup.alert({
-            title: "Nutrition Level",
-            template: nutrient["food_name"],
-            oktype: 'button-positive'
-        });
+        if (typeof nutrient != 'undefined') {
+            var template = "<div><img src='" + nutrient["thumb"] + "'></div><div>Food: " + nutrient["food_name"] + "</div><div>Serving size: " + nutrient["serving_weight_grams"] + " g</div>" + "<div>Calories: " + nutrient["nf_calories"] + " kCal</div><div>Total fat: " + nutrient["nf_total_fat"] + " g</div><div>Protein: " + nutrient["nf_protein"] + " g</div>";
+
+            this.$ionicPopup.alert({
+                title: "Nutrition Facts",
+                template: template,
+                oktype: 'button-positive'
+            });
+        }
     }
 
     sendMessage() {
