@@ -21,9 +21,26 @@ export default class PostCtrl extends Controller {
                 return Posts.findOne(this.postId);
             },
             user(){
-                return this.currentUser.profile;
+                return this.currentUser.username;
+            },
+            userId(){
+                return Meteor.userId();
             }
         });
+    }
+
+    showNutrientInfo(food) {
+        var post = Posts.findOne(this.postId);
+        var nutrient = post.nutrients[food];
+        if (typeof nutrient != 'undefined') {
+            var template = "<div class='nutrientPopUp'><div class='nutrientImg'><img class='img-responsive' src='" + nutrient["thumb"] + "'></div><div>Food: " + nutrient["food_name"] + "</div><div>Serving size: " + nutrient["serving_weight_grams"] + " g</div>" + "<div>Calories: " + nutrient["nf_calories"] + " kCal</div><div>Total fat: " + nutrient["nf_total_fat"] + " g</div><div>Protein: " + nutrient["nf_protein"] + " g</div></div>";
+
+            this.$ionicPopup.alert({
+                title: "<span class='nutrientTitle'>Nutrition Facts</span>",
+                template: template,
+                oktype: 'button-positive'
+            });
+        }
     }
 
     sendMessage() {

@@ -1,20 +1,22 @@
 <ion-view title="Food">
     <ion-nav-buttons side="right">
+        <span ng-if="post.data.userId == post.userId">
         <button class="btn btn-danger" ng-click="post.removePost()">Delete</button>
+            </span>
     </ion-nav-buttons>
     <ion-content class="post" delegate-handle="postScroll">
         <img class="img-responsive" ng-src="{{post.data.picture}}">
         <h2>What's inside</h2>
         <div class="itemConcepts">
             <a ng-repeat="concept in post.data.concepts">
-                <span class="label label-primary">{{concept.name}}</span>
+                <span class="label label-primary" ng-click="post.showNutrientInfo(concept.name)">{{concept.name}}</span>
             </a>
         </div>
         <h2>Comments</h2>
         <div class="comments" ng-repeat="msg in post.messages">
             <ion-item>
                 <div>
-                    <label>{{post.user.name}}</label>
+                    <label>{{post.user}}</label>
                     <span class="timeStamp">{{ msg.timestamp | amDateFormat: 'HH:mm' }}</span>
                 </div>
                 <div>
